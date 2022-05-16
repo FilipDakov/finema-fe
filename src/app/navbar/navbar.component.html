@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-uppercase fixed-top navbar-collapse" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" (click)="scroll($event)">FINEMA</a>
+        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu  
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/home']">Екскурзии</a></li>
+
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/home']">
+                    Автобусен транспорт</a></li>
+
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/home']">Адреси Офиси</a></li>
+
+                <!-- <li *ngIf="!this.authenticationService.isLogedIn()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/login']">Вход</a></li>
+
+                <li *ngIf="!this.authenticationService.isLogedIn()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/signup']">Регистрация</a></li>
+
+                <li *ngIf="this.authenticationService.isLogedIn()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/']" (click)="logout()">Изход</a></li>
+
+                <li *ngIf="this.authenticationService.isLogedIn()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded name" >{{this.authenticationService.currentUserValue.email.split('@')[0]}}</a></li>
+ -->
+
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,66 @@
+<div class="divider-custom" *ngIf="isFirstModal()">
+    <div class="divider-custom-line"></div>
+    <div class="divider-custom-icon"><i class="fa-solid fa-clapperboard"></i></div>
+    <div class="divider-custom-line"></div>
+</div>
+
+<div class="col-md-12 col-lg-12 mb-5">
+    <div class="excursion-item mx-auto" data-bs-toggle="modal" [attr.data-bs-target]="'#excursionModal'+modalId">
+        <div class="excursion-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+            <div class="excursion-item-caption-content text-center text-white">
+                {{movie.name}}
+            </div>
+        </div>
+        <img class="img-fluid" [src]="movie.imgPath" alt="..." />
+    </div>
+</div>
+
+
+<div class="excursion-modal modal fade" [id]="'excursionModal'+modalId" tabindex="-1" aria-labelledby="excursionModal1"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
+                    aria-label="Close"></button></div>
+            <div class="modal-body text-center pb-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Portfolio Modal - Title-->
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0"> {{movie.name}} </h2>
+                            <!-- Icon Divider-->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fa-solid fa-clapperboard"></i></div>
+                                <div class="divider-custom-line"></div>
+                            </div>
+                            <!-- Portfolio Modal - Image-->
+                            <img class="img-fluid rounded mb-5 col-8 col-sm-8" [src]="movie.imgPath" alt="..." />
+                            <div class="container">
+                                <div class="row justify-content-md-center">
+                                    <div class="col-md-auto" *ngFor="let genre of movie.genres">
+                                        <h5>
+                                            <span class="badge bg-success"> {{genre}} </span>
+
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <!-- Portfolio Modal - Text-->
+                            <p class="h1 mb-4">Описание : </p>
+                            <p class="h6 mb-5">{{movie.description}}</p>
+                            <p class="h1 mb-4"> Актьорски състав : </p>
+                            <p class="h6 mb-5">{{actors}}</p>
+                            <p class="h3 mb-3">В кината от : {{releaseDate}}</p>
+                            <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                                <i class="fas fa-times fa-fw"></i>
+                                Затвори
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
