@@ -1,1 +1,82 @@
-<p>add-movie works!</p>
+
+
+
+<form class="form-group form row bg-image">
+    <h2 class="page-section-heading text-center text-uppercase text-light mb-0 heading">Добавяне на филм</h2>
+    <!-- Icon Divider-->
+    <div class="divider-custom">
+        <div class="divider-custom-line customLine"></div>
+        <div class="divider-custom-icon customStar"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line customLine"></div>
+    </div>
+
+    <div class="col-sm-6 formNames">
+        <div class="form-group col-sm-6">
+            <label class="col-sm-9 nameLabel" for="movieName">Име на филм</label>
+            <input class="col-sm-2 nameLabel" name="movieName" [(ngModel)]="movieName"
+                [ngModelOptions]="{standalone: true}" type="text" class="form-control" aria-describedby="movieName"
+                placeholder="Име на филм">
+        </div>
+
+        <div class="form-group col-sm-6">
+            <label class="col-sm-12 nameLabel" for="restriction">Възрастово ограничение</label>
+            <ng-select class=" town-select  form-select form-select-md mb-1" name ="restriction" [items]="resctrictions" #box bindLabel="name"
+               appendTo="body" (change)="changeFn()" [ngModelOptions]="{standalone: true}" placeholder=""
+               [(ngModel)]="restriction"> 
+            </ng-select>
+          </div>
+
+
+        <div class="form-group col-sm-3">
+            <label class="col-sm-12 nameLabel" for="timespan">Времетраене (минути)</label>
+            <input class="col-sm-2 nameLabel" name="timespan" [(ngModel)]="timespan"
+                [ngModelOptions]="{standalone: true}" type="text" class="form-control" aria-describedby="timespan"
+                placeholder="Времетраене">
+        </div>
+
+        <div class="form-group col-sm-9">
+            <label class="col-sm-9 nameLabel" for="phone">Добавяне на актьори : </label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Recipient's username"  [ngModelOptions]="{standalone: true}" [(ngModel)]="actor" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-primary customBtn" type="button" id="button-addon2"  (click)="btnClick()">Добави</button>
+                <button class="btn btn-primary customBtn" type="button" id="button-addon2"  (click)="removeClick()">Премахни последен</button>
+            </div>
+        </div>
+
+        <div class="form-group col-sm-9">
+            <label class="col-sm-12 nameLabel" for="genres">Добавяне на жанр</label>
+            <div class="input-group mb-3">
+            <ng-select class=" town-select  form-select form-select-md mb-6" name ="genres" [items]="genres" #box bindLabel="name"
+               appendTo="body" (change)="changeFn()" [ngModelOptions]="{standalone: true}" placeholder=""
+               [(ngModel)]="genre"> 
+            </ng-select>
+            <button class="btn btn-primary customBtn mb-6" type="button" id="button-addon2"  (click)="addGenreClick()">Добави</button>
+            <button class="btn btn-primary customBtn mb-6" type="button" id="button-addon2"  (click)="removeGenreClick()">Премахни последен</button>
+        </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <label class="col-sm-12 nameLabel" for="description">Описание</label>
+            <textarea class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="description"
+                id="description" rows="3" aria-describedby="Описание" placeholder="Описание"></textarea>
+        </div>
+
+
+        <div class="form-group col-sm-6">
+            <label class="col-sm-9 nameLabel" for="description">Дата на излизане</label>
+            <div class="input-group">
+              <input class="form-control" placeholder="yyyy-mm-dd" [markDisabled]="isDisabled"
+                     name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+              <button class="btn btn-outline-light calendar" (click)="d.toggle()" type="button"><i
+                class="far fa-calendar-alt"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-12 col-sm-12">
+        <button type="submit" class="btn btn-primary submitBtn col-12 col-sm-12"
+            [disabled]="this.movieName ===''  "
+            (click)="testClick()">Напред</button>
+    </div>
+</form>

@@ -12,6 +12,13 @@ import { GroupMoviesComponent } from './group-movies/group-movies.component';
 import { MovieItemComponent } from './movie-item/movie-item.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddMovieComponent } from './add-movie/add-movie.component';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { ModalElementComponent } from './modal-element/modal-element.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,13 +29,21 @@ import { AddMovieComponent } from './add-movie/add-movie.component';
     HeaderSectionComponent,
     GroupMoviesComponent,
     MovieItemComponent,
-    AddMovieComponent
+    AddMovieComponent,
+    ModalElementComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    NgbModule,
+    NgSelectModule,
+    ReactiveFormsModule
+    
   ],
   providers: [{ provide: 'BACKEND_URL', useValue: 'http://localhost:8080'}],
   bootstrap: [AppComponent]

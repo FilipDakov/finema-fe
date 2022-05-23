@@ -1,0 +1,118 @@
+
+
+form {
+    margin-top: 6%;
+    padding-bottom: 3%;
+}
+
+.form-group {
+    padding: 0.5%;
+}
+
+.btn-group {
+    padding-bottom: 0.5%;
+    margin-left: 1%;
+}
+
+.seatbtn {
+    min-width: 50px;
+}
+
+.freeSeat {
+    background-color: #ff0101;
+    border-color: #2c503f;
+}
+
+.takenSeat {
+    background-color: #c13939;
+}
+
+.selectedSeat {
+    background-color: #ffc666;
+}
+.lockedSeat{
+    background-color: #6e6e6e;
+}
+
+.namesFrom {
+    margin-right: 30%;
+}
+
+.bg-image {
+    background-size: cover;
+    padding-bottom: 1%;     
+    margin-top: 5% !important;
+    background-image: url('/assets/img/background/test4.jpg');
+}
+
+.nameLabel {
+    color: white;
+    text-align: center;
+}
+
+.town-select{
+    text-align: center;
+}
+
+
+.ngb-dp-day{
+    background-color: #468ebb7b !important;
+}
+
+.col-sm-6{
+    display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.form-group{
+    display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.customBtn{
+    border-color: white !important;
+}
+
+.customLine{
+    color: white !important;
+    background-color: white !important;
+}
+
+.customStar {
+      color: white !important;
+}
+
+.heading{
+    margin-top: 2%;
+}
+
+.ng-option:hover{
+    background-color: aqua !important;
+}
+
+.ng-option-selected{
+    background-color: red !important;
+}
+
+.ng-dropdown-panel-items{
+    background-color: red !important;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option{
+    background-color: red !important;
+}
+
+.ng-option-marked{
+    background-color: #ffc666 !important;
+}
+
+
+.ng-select .ng-select-container:hover{
+    background-color: yellow;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+    background-color: red;
+}

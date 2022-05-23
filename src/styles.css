@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
- @import "~bootstrap/dist/css/bootstrap.css"; 
+ @import "~bootstrap/dist/css/bootstrap.css";
+ @import "~@ng-select/ng-select/themes/default.theme.css"; 
 /*!
 * Start Bootstrap - Freelancer v7.0.3 (https://startbootstrap.com/theme/freelancer)
 * Copyright 2013-2021 Start Bootstrap
