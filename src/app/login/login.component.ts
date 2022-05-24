@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { AuthenticationService } from 'src/security/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -25,12 +26,12 @@ export class LoginComponent implements OnInit {
       private formBuilder: FormBuilder,
       private route: ActivatedRoute,
       private router: Router,
-    //  private authenticationService: AuthenticationService
+      private authenticationService: AuthenticationService
   ) { 
-      // redirect to home if already logged in
-      // if (this.authenticationService.currentUserValue) { 
-      //     this.router.navigate(['/']);
-      // }
+     // redirect to home if already logged in
+      if (this.authenticationService.currentUserValue) { 
+          this.router.navigate(['/']);
+      }
   }
 
   ngOnInit() {
@@ -55,16 +56,16 @@ export class LoginComponent implements OnInit {
       }
 
       this.loading = true;
-      // this.authenticationService.login(this.f.username.value, this.f.password.value)
-      //     .pipe(first())
-      //     .subscribe(
-      //         data => {
-      //             this.router.navigate([this.returnUrl]);
-      //         },
-      //         error => {
-      //             this.error = "Invalid email or password";
-      //             this.loading = false;
-      //         });
+      this.authenticationService.login(this.f.username.value, this.f.password.value)
+          .pipe(first())
+          .subscribe(
+              data => {
+                  this.router.navigate([this.returnUrl]);
+              },
+              error => {
+                  this.error = "Invalid email or password";
+                  this.loading = false;
+              });
   }
 
 }

@@ -14,9 +14,9 @@ export class GroupMoviesComponent implements OnInit {
   constructor(private http: HttpClient,@Inject('BACKEND_URL') private backendUrl :string ) { }
 
   ngOnInit(): void {
-    this.http.get(this.backendUrl.concat("/movies/getValidMovies"))
+    this.http.get(this.backendUrl.concat("/movies/getMovies"))
     .subscribe(data => {
-      console.log(data);
+     // console.log(data);
       this.movies= data as Movie[];
     } );
   }

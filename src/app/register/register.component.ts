@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { AuthenticationService } from 'src/security/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +23,7 @@ export class RegisterComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    // private authenticationService: AuthenticationService
+     private authenticationService: AuthenticationService
     ) { }
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -66,16 +67,16 @@ export class RegisterComponent implements OnInit {
       }
 
       this.loading = true;
-      // this.authenticationService.signup(this.f.username.value, this.f.password.value)
-      //     .pipe(first())
-      //     .subscribe(
-      //         data => {
-      //             this.router.navigate([this.returnUrl]);
-      //         },
-      //         error => {
-      //             this.error = "Invalid email or password";
-      //             this.loading = false;
-      //         });
+      this.authenticationService.signup(this.f.username.value, this.f.password.value)
+          .pipe(first())
+          .subscribe(
+              data => {
+                  this.router.navigate([this.returnUrl]);
+              },
+              error => {
+                  this.error = "Invalid email or password";
+                  this.loading = false;
+              });
   }
 
 }

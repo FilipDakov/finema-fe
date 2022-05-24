@@ -19,6 +19,8 @@ import { ModalElementComponent } from './modal-element/modal-element.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { JwtInterceptor } from 'src/security/jwtInterceptor';
+import { AddScreeningComponent } from './add-screening/add-screening.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AddMovieComponent,
     ModalElementComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddScreeningComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
     
   ],
-  providers: [{ provide: 'BACKEND_URL', useValue: 'http://localhost:8080'}],
+  providers: [{ provide: 'BACKEND_URL', useValue: 'http://localhost:8080'},
+  { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

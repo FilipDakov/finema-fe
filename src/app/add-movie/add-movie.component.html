@@ -74,9 +74,9 @@
 
     </div>
 
-    <div class="col-12 col-sm-12">
+    <div class="col-12 col-sm-12 custom">
         <button type="submit" class="btn btn-primary submitBtn col-12 col-sm-12"
-            [disabled]="this.movieName ===''  "
+            [disabled]="disableButton()"
             (click)="testClick()">Напред</button>
     </div>
 </form>

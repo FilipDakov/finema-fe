@@ -116,3 +116,7 @@ margin-right: auto;
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
     background-color: red;
 }
+
+.custom{
+    margin-top: 2%;
+}

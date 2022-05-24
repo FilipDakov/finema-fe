@@ -17,8 +17,8 @@ export class MovieItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.movie);
-    console.log(this.modalId);
+   // console.log(this.movie);
+  //  console.log(this.modalId);
     let releaseDate = new Date(this.movie.releaseDate);
     let month =  releaseDate.getMonth() < 10 ? "0" + releaseDate.getMonth() : releaseDate.getMonth();
     this.releaseDate = releaseDate.getDate() + "/" + month  + "/" +  releaseDate.getFullYear();    

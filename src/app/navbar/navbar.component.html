@@ -9,19 +9,20 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/home']">Филми</a></li>
 
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/addMovie']">
+                <li  *ngIf="this.authenticationService.isLogedIn() && this.authenticationService.isAdmin()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/addMovie']">
                     Добавяне на филм</a></li>
 
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/home']">Адреси Офиси</a></li>
 
-                 <li  class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/login']">Вход</a></li>
+                 <li *ngIf="!this.authenticationService.isLogedIn()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/login']">Вход</a></li>
 
-                <li  class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/registration']">Регистрация</a></li>
+                <li  *ngIf="!this.authenticationService.isLogedIn()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/registration']">Регистрация</a></li>
 
-              <!--  <li *ngIf="this.authenticationService.isLogedIn()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/']" (click)="logout()">Изход</a></li>
+                <li *ngIf="this.authenticationService.isLogedIn()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/']" (click)="logout()">Изход</a></li>
 
                 <li *ngIf="this.authenticationService.isLogedIn()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded name" >{{this.authenticationService.currentUserValue.email.split('@')[0]}}</a></li>
- -->
+
+                <li  *ngIf="this.authenticationService.isLogedIn() && this.authenticationService.isAdmin()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded name" >ADMIN</a></li>
 
             </ul>
         </div>
