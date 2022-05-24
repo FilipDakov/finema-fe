@@ -1,1 +1,84 @@
-<p>add-screening works!</p>
+
+
+
+<form class="form-group form row bg-image">
+    <h2 class="page-section-heading text-center text-uppercase text-light mb-0 heading">Добавяне на прожекция</h2>
+    <!-- Icon Divider-->
+    <div class="divider-custom">
+        <div class="divider-custom-line customLine"></div>
+        <div class="divider-custom-icon customStar"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line customLine"></div>
+    </div>
+
+    <div class="col-sm-6 formNames">
+        <div class="form-group col-sm-6">
+            <label class="col-sm-6 nameLabel" for="movieName">Име на филм :</label>
+            <input class="col-sm-2 nameLabel" name="movieName" [(ngModel)]="movieName"
+                [ngModelOptions]="{standalone: true}" type="text" class="form-control" aria-describedby="movieName"
+                placeholder="Име на филм">
+        </div>
+
+        <div class="form-group col-sm-6">
+            <!-- <label class="col-sm-12 nameLabel" for="movieName">Възрастово ограничение</label> -->
+            <ng-select class=" town-select  form-select form-select-md mb-1" name ="movies" [items]="movies" #box bindLabel="movieName"
+               appendTo="body" (change)="changeFn()" [ngModelOptions]="{standalone: true}" placeholder=""
+               [(ngModel)]="movieName"> 
+            </ng-select>
+          </div>
+
+
+          <div class="form-group col-sm-6">
+             <label class="col-sm-12 nameLabel" for="halls">Избор на зала :</label> 
+            <ng-select class=" town-select  form-select form-select-md mb-1" name ="halls" [items]="halls" #box bindLabel="hall"
+               appendTo="body" (change)="changeFn()" [ngModelOptions]="{standalone: true}" placeholder=""
+               [(ngModel)]="hall"> 
+            </ng-select>
+          </div>
+
+          <div class="form-group col-sm-6">
+             <label class="col-sm-12 nameLabel" for="premiereTypes">Избор тип:</label> 
+            <ng-select class=" town-select  form-select form-select-md mb-1" name ="premiereTypes" [items]="premiereTypes" #box bindLabel="premiereTypes"
+               appendTo="body" (change)="changeFn1()" [ngModelOptions]="{standalone: true}" placeholder=""
+               [(ngModel)]="premiereType"> 
+            </ng-select>
+          </div>
+
+          <div class="form-group col-sm-6">
+            <label class="col-sm-12 nameLabel" for="screeningTypes">Избор на вид прожекция:</label> 
+           <ng-select class=" town-select  form-select form-select-md mb-1" name ="screeningTypes" [items]="screeningTypes" #box bindLabel="screeningTypes"
+              appendTo="body" (change)="changeFn1()" [ngModelOptions]="{standalone: true}" placeholder=""
+              [(ngModel)]="screeningType"> 
+           </ng-select>
+         </div>
+
+         <div class="form-group col-sm-2">
+            <label class="col-sm-12 nameLabel" for="screeningTypes">Избор на начален час:</label> 
+         <ngb-timepicker class="test" [(ngModel)]="time" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+        </div>
+        
+        <div class="form-group col-sm-6">
+            <label class="col-sm-12 nameLabel" for="ticketPrices">Цена на билет:</label> 
+           <ng-select class=" town-select  form-select form-select-md mb-1" name ="ticketPrices" [items]="ticketPrices" #box bindLabel="ticketPrices"
+              appendTo="body" (change)="changeFn1()" [ngModelOptions]="{standalone: true}" placeholder=""
+              [(ngModel)]="ticketPrice"> 
+           </ng-select>
+         </div>
+        
+        <div class="form-group col-sm-6">
+            <label class="col-sm-6 nameLabel" for="description">Дата на прожекция</label>
+            <div class="input-group">
+              <input class="form-control" placeholder="yyyy-mm-dd" [markDisabled]="isDisabled"
+                     name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+              <button class="btn btn-outline-light calendar" (click)="d.toggle()" type="button"><i
+                class="far fa-calendar-alt"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-12 col-sm-12 custom">
+        <button type="submit" class="btn btn-primary submitBtn col-12 col-sm-12"
+            [disabled]="disableButton()"
+            (click)="submitButton()">Напред</button>
+    </div>
+</form>

@@ -11089,3 +11089,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 #reservateBtn{
   margin-left: 44%;
 }
+
+.ngb-tp {
+  background-color: white !important;
+  border-radius: 10px !important;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}

@@ -20,9 +20,9 @@ export class MovieItemComponent implements OnInit {
    // console.log(this.movie);
   //  console.log(this.modalId);
     let releaseDate = new Date(this.movie.releaseDate);
-    let month =  releaseDate.getMonth() < 10 ? "0" + releaseDate.getMonth() : releaseDate.getMonth();
+    let month =  releaseDate.getMonth()+1 < 10 ? "0" + (releaseDate.getMonth()+1) : releaseDate.getMonth()+1;
     this.releaseDate = releaseDate.getDate() + "/" + month  + "/" +  releaseDate.getFullYear();    
-    console.log(this.releaseDate);
+   // console.log(this.releaseDate);
     this.actors = "";
     this.movie.actors.forEach(actor=> {
       this.actors = this.actors + actor.firstName + " " + actor.lastName  +  ", ";

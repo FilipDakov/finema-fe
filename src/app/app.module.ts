@@ -21,6 +21,7 @@ import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptor } from 'src/security/jwtInterceptor';
 import { AddScreeningComponent } from './add-screening/add-screening.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AddScreeningComponent } from './add-screening/add-screening.component';
     ModalElementComponent,
     LoginComponent,
     RegisterComponent,
-    AddScreeningComponent
+    AddScreeningComponent,
+    ComingSoonComponent
   ],
   imports: [
     BrowserModule,

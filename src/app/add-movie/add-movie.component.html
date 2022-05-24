@@ -12,7 +12,7 @@
 
     <div class="col-sm-6 formNames">
         <div class="form-group col-sm-6">
-            <label class="col-sm-9 nameLabel" for="movieName">Име на филм</label>
+            <label class="col-sm-6 nameLabel" for="movieName">Име на филм</label>
             <input class="col-sm-2 nameLabel" name="movieName" [(ngModel)]="movieName"
                 [ngModelOptions]="{standalone: true}" type="text" class="form-control" aria-describedby="movieName"
                 placeholder="Име на филм">
@@ -35,7 +35,7 @@
         </div>
 
         <div class="form-group col-sm-9">
-            <label class="col-sm-9 nameLabel" for="phone">Добавяне на актьори : </label>
+            <label class="col-sm-12 nameLabel" for="phone">Добавяне на актьори : </label>
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Recipient's username"  [ngModelOptions]="{standalone: true}" [(ngModel)]="actor" aria-label="Recipient's username" aria-describedby="button-addon2">
                 <button class="btn btn-primary customBtn" type="button" id="button-addon2"  (click)="btnClick()">Добави</button>
@@ -63,7 +63,7 @@
 
 
         <div class="form-group col-sm-6">
-            <label class="col-sm-9 nameLabel" for="description">Дата на излизане</label>
+            <label class="col-sm-6 nameLabel" for="description">Дата на излизане</label>
             <div class="input-group">
               <input class="form-control" placeholder="yyyy-mm-dd" [markDisabled]="isDisabled"
                      name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">

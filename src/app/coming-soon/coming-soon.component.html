@@ -1,0 +1,17 @@
+<section class="page-section excursion" id="excursion">
+    <div class="container">
+        <!-- movie Section Heading-->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Очаквайте скоро на екран!</h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon"><i class="fa-solid fa-clapperboard"></i></div>
+          <div class="divider-custom-line"></div>
+      </div>
+        <div class=" justify-content-center">
+            <app-movie-item *ngFor="let movie of movies ; let id = index" [movie]="movie" [modalId]="id">
+
+            </app-movie-item>
+        </div>
+    </div>
+</section>

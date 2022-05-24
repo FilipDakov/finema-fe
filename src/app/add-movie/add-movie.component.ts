@@ -76,7 +76,7 @@ export class AddMovieComponent implements OnInit {
     this.http.post<any>(this.backendUrl.concat("/movies/addMovie"), body, { 'headers': headers }).subscribe(el => {
       console.log(el);
       const modalRef = this.modalService.open(ModalElementComponent);
-      console.log(el.message);
+     // console.log(el.message);
       modalRef.componentInstance.name = el.message;
     });
 
