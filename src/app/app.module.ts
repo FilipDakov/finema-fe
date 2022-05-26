@@ -22,6 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptor } from 'src/security/jwtInterceptor';
 import { AddScreeningComponent } from './add-screening/add-screening.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { ScheduleItemComponent } from './schedule-item/schedule-item.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
     LoginComponent,
     RegisterComponent,
     AddScreeningComponent,
-    ComingSoonComponent
+    ComingSoonComponent,
+    ScheduleComponent,
+    ScheduleItemComponent
   ],
   imports: [
     BrowserModule,

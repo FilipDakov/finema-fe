@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpEventType, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { NgbCalendar, NgbDateStruct, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { ModalElementComponent } from '../modal-element/modal-element.component';
 import { Actor } from '../models/actor';
 import { Genre } from '../models/genre';
@@ -25,6 +27,9 @@ export class AddMovieComponent implements OnInit {
   public resctrictions: Array<string> = [];
   public genres: Array<string> = [];
   public actor: string = '';
+
+  selectedFiles?: FileList;
+  currentFile?: File;
 
 
 
@@ -58,27 +63,66 @@ export class AddMovieComponent implements OnInit {
   }
 
   testClick() {
+
     let date = new Date;
     //debugger;
     date.setDate(this.model.day);
     date.setMonth(this.model.month - 1);
     date.setFullYear(this.model.year);
 
-    let genresEnum = [];
-    this.selectedGenres.forEach(x =>
-      genresEnum.push(this.mapGenres.get(x)));
-    let newMovie = new Movie(this.actors, this.mapRestrictions.get(this.restriction), this.description, genresEnum, "assets/img/finemaLogo.png", this.movieName, date, this.timespan);
-    console.log(newMovie);
-    const headers = { 'content-type': 'application/json', 'Accept': 'application/json', 'charset': 'utf-8' };
-    const body = JSON.stringify(newMovie);
-    let finish = false;
-    //  const modalRef = this.modalService.open(ModalElementComponent);
-    this.http.post<any>(this.backendUrl.concat("/movies/addMovie"), body, { 'headers': headers }).subscribe(el => {
-      console.log(el);
-      const modalRef = this.modalService.open(ModalElementComponent);
-     // console.log(el.message);
-      modalRef.componentInstance.name = el.message;
-    });
+    if (this.selectedFiles) {
+      const file: File | null = this.selectedFiles.item(0);
+      if (file) {
+        this.currentFile = file;
+
+        this.upload(this.currentFile).subscribe((event: any) => {
+
+          if (event.type === HttpEventType.UploadProgress) {
+            console.log(Math.round(100 * event.loaded / event.total));
+
+          } else if (event instanceof HttpResponse) {
+            if (event.body.errorCode == 200) {
+              let genresEnum = [];
+              this.selectedGenres.forEach(x =>
+                genresEnum.push(this.mapGenres.get(x)));
+              let newMovie = new Movie(this.actors, this.mapRestrictions.get(this.restriction), this.description, genresEnum, "/assets/img/" + this.currentFile.name, this.movieName, date, this.timespan);
+              console.log(newMovie);
+              const headers = { 'content-type': 'application/json', 'Accept': 'application/json', 'charset': 'utf-8' };
+              const body = JSON.stringify(newMovie);
+              let finish = false;
+              //  const modalRef = this.modalService.open(ModalElementComponent);
+              this.http.post<any>(this.backendUrl.concat("/movies/addMovie"), body, { 'headers': headers }).subscribe(el => {
+                console.log(el);
+                const modalRef = this.modalService.open(ModalElementComponent);
+                // console.log(el.message);
+                modalRef.componentInstance.name = el.message;
+              });
+            }else{
+              const modalRef = this.modalService.open(ModalElementComponent);
+              // console.log(el.message);
+              modalRef.componentInstance.name = event.body.message;
+            }
+          }
+        });
+      }
+    }
+
+
+    // let genresEnum = [];
+    // this.selectedGenres.forEach(x =>
+    //   genresEnum.push(this.mapGenres.get(x)));
+    // let newMovie = new Movie(this.actors, this.mapRestrictions.get(this.restriction), this.description, genresEnum, "assets/img/finemaLogo.png", this.movieName, date, this.timespan);
+    // console.log(newMovie);
+    // const headers = { 'content-type': 'application/json', 'Accept': 'application/json', 'charset': 'utf-8' };
+    // const body = JSON.stringify(newMovie);
+    // let finish = false;
+    // //  const modalRef = this.modalService.open(ModalElementComponent);
+    // this.http.post<any>(this.backendUrl.concat("/movies/addMovie"), body, { 'headers': headers }).subscribe(el => {
+    //   console.log(el);
+    //   const modalRef = this.modalService.open(ModalElementComponent);
+    //   // console.log(el.message);
+    //   modalRef.componentInstance.name = el.message;
+    // });
 
   }
 
@@ -153,12 +197,46 @@ export class AddMovieComponent implements OnInit {
   }
 
   disableButton() {
-    if (this.movieName != '' && this.restriction != null 
-    && this.timespan != null && !isNaN(this.timespan) 
-    && this.actors.length > 0 && this.selectedGenres.length > 0 && this.description != '' && this.model != null) {
+    if (this.movieName != '' && this.restriction != null
+      && this.timespan != null && !isNaN(this.timespan)
+      && this.actors.length > 0 && this.selectedGenres.length > 0 && this.description != '' && this.model != null && this.selectedFiles.length>0) {
       return false;
     }
     return true;
   }
+
+  selectFile(event: any): void {
+    this.selectedFiles = event.target.files;
+  }
+
+  upload(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+
+    formData.append('file', file);
+
+    const req = new HttpRequest('POST', this.backendUrl.concat("/addFile"), formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+
+    return this.http.request(req);
+  }
+
+
+  // uploadFile(): string {
+
+  //   if (this.selectedFiles) {
+  //     const file: File | null = this.selectedFiles.item(0);
+  //     if (file) {
+  //       this.currentFile = file;
+
+  //       this.upload(this.currentFile).subscribe((data: any) => {
+  //         return data.message;
+  //       });
+  //     }
+  //   }
+
+  //   return null;
+  // }
 
 }

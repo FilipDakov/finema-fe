@@ -6,6 +6,7 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 const routes: Routes = [
   {path : '',redirectTo : 'home', pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path : 'registration', component:RegisterComponent},
   {path : 'addScreening', component:AddScreeningComponent},
   {path: 'upcomingMovies', component:ComingSoonComponent},
+  {path : 'schedule',component:ScheduleComponent},
   { path: '**', redirectTo: '' }
 ];
 
@@ -22,4 +24,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { } 

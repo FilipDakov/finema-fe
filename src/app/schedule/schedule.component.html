@@ -1,0 +1,37 @@
+<div class="container ">
+    <nav class="navbar navbar-light bg-light">
+        <form class="container-fluid justify-content-center ">
+            <button class="btn btn-outline-dark me-3" type="button" (click)="btnClick('MONDAY')">Понеделник</button>
+            <button class="btn btn-outline-dark me-3" type="button" (click)="btnClick('TUESDAY')">Вторник</button>
+            <button class="btn btn-outline-dark me-3" type="button" (click)="btnClick('WEDNESDAY')">Сряда</button>
+            <button class="btn btn-outline-dark me-3" type="button" (click)="btnClick('THURSDAY')">Четвъртък</button>
+            <button class="btn btn-outline-dark me-3" type="button" (click)="btnClick('FRIDAY')">Петък</button>
+            <button class="btn btn-outline-dark me-3" type="button" (click)="btnClick('SATURDAY')">Събота</button>
+            <button class="btn btn-outline-dark me-3" type="button" (click)="btnClick('SUNDAY')">Неделя</button>
+        </form>
+    </nav>
+
+    <div class="container bottom" *ngIf="nameEqual('MONDAY')" >
+        <app-schedule-item [day]="day"></app-schedule-item>
+    </div>
+    <div class="container bottom" *ngIf="nameEqual('TUESDAY')">
+        <app-schedule-item [day]="day"></app-schedule-item>
+    </div>
+    <div class="container bottom" *ngIf="nameEqual('WEDNESDAY')">
+        <app-schedule-item [day]="day"></app-schedule-item>
+    </div>
+    <div class="container bottom" *ngIf="nameEqual('THURSDAY')">
+        <app-schedule-item [day]="day"></app-schedule-item>
+    </div>
+    <div class="container bottom" *ngIf="nameEqual('FRIDAY')">
+        <app-schedule-item [day]="day"></app-schedule-item>
+    </div>
+    <div class="container bottom" *ngIf="nameEqual('SATURDAY')">
+        <app-schedule-item [day]="day"></app-schedule-item>
+    </div>
+    <div class="container bottom" *ngIf="nameEqual('SUNDAY')">
+        <app-schedule-item [day]="day"></app-schedule-item>
+    </div>
+    
+
+</div>

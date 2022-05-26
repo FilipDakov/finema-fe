@@ -1,0 +1,28 @@
+
+<h1 class="col-sm-12  text-center head ">{{map.get(day.toUpperCase())}}</h1>
+<div class="col-sm-12">
+    <div class="row">
+        <div *ngFor="let movieScreening of movieScreenings ; let i = index" class="col container container-test">
+            <!-- <h4 class="text-secondary col-sm-12 text-center text-uppercase mb-0"> {{movieScreening.movie}} </h4> -->
+            <div class="row test">
+                    <img [src]='movieScreening.screenings[0].imgPath' class="rounded float-start img-fluid custom"
+                        alt="...">
+                    <h5 class="col-sm-12 nameLabel text-center heading">{{movieScreening.movie}}</h5>
+                    <div class="row element">
+                        <div *ngFor="let screening of movieScreening.screenings; let j = index"
+                            class="col container container-screening">
+                            <!-- <label class="col-sm-3 nameLabel" for="secondName">{{screening.imgPath}}</label> -->
+                            <button class="btn btn-outline-dark me-3 " type="button" [disabled]='false'>
+                                <p class="paragraph bolded">{{screening.startTime}}</p>
+                                <p class="paragraph bolded">ЗАЛА {{screening.hall}}</p>
+                                <!-- <p *ngIf='screening.premiereType != "Обикновен"' class="paragraph">{{screening.premiereType}}</p> -->
+                                <p class="paragraph bolded">{{screening.screeningType}}</p>
+                                <p class="paragraph">{{screening.ticketCost}}.00 Лв.</p>
+                            </button>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

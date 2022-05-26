@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-uppercase fixed-top navbar-collapse" id="mainNav">
     <div class="container-fluid">
         <a class="navbar-brand" (click)="scroll($event)">
-            <img src="/assets/img/finemaLogo.png" alt="" width="60" height="60" class="d-inline-block align-text-top">
+            <img src="/assets/img/finemaLogo.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
             FINEMA</a>
         <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu  
@@ -11,6 +11,7 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/home']">Филми на екран</a></li>
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/upcomingMovies']">Очаквайте скоро</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/schedule']">Разписание</a></li>
 
                 <li  *ngIf="this.authenticationService.isLogedIn() && this.authenticationService.isAdmin()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/addMovie']">
                     Добавяне на филм</a></li>
@@ -25,7 +26,7 @@
 
                 <li *ngIf="this.authenticationService.isLogedIn()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded name" >{{this.authenticationService.currentUserValue.email.split('@')[0]}}</a></li>
 
-                <li  *ngIf="this.authenticationService.isLogedIn() && this.authenticationService.isAdmin()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded name" >ADMIN</a></li>
+                <li  *ngIf="this.authenticationService.isLogedIn() && this.authenticationService.isAdmin()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-1 rounded name" >ADMIN</a></li>
 
             </ul>
         </div>

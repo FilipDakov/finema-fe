@@ -90,7 +90,7 @@ export class AddScreeningComponent implements OnInit {
     date.setDate(this.model.day);
     date.setMonth(this.model.month - 1);
     date.setFullYear(this.model.year);
-    let startTime = this.time.hour + ":" + this.time.minute;
+    let startTime = this.time.hour > 9 ? ""+ this.time.hour : "0" + this.time.hour + ":" + this.time.minute;
     let screening = new Screening(date, this.hall, null, this.movieName,
         this.premiereMap.get(this.premiereType), this.screeningMap.get(this.screeningType), startTime, this.ticketPrice);
     let body = JSON.stringify(screening);
