@@ -1,0 +1,107 @@
+<!-- <div class="bg-image">
+    <form class="movies-form">
+        <div class="form-group row">
+            <div class="col-3 col-sm-3">
+                <ng-select class=" movie-select form-select form-select-md mb-1" [items]="items" #box bindLabel="name"
+                    (change)="changeFn()" appendTo="body" [ngModelOptions]="{standalone: true}" placeholder="Филм : "
+                    [(ngModel)]="movieName">
+                </ng-select>
+            </div> -->
+
+<!-- <div class="col-3 col-sm-3">
+                <ng-select class=" movie-select form-select form-select-md mb-1" [items]="availableDays" #box1
+                  (change)="changeTown()" bindLabel="name" appendTo="body" [ngModelOptions]="{standalone: true}"
+                  placeholder="До: " [(ngModel)]="destinationCity">
+                </ng-select>
+              </div> -->
+<!-- 
+        </div>
+    </form>
+</div> -->
+
+<form class="form-group row bg-image">
+    <div class="col-sm-6 formNames">
+        <div class="form-group col-sm-3">
+            <label class="col-sm-9 nameLabel"  for="firstName">Име</label>
+            <input class="col-sm-2 nameLabel" name ="firstName" [(ngModel)]="firstName" [ngModelOptions]="{standalone: true}" type="text" class="form-control" aria-describedby="firstname" placeholder="Първо име">
+        </div>
+
+        <div class="form-group col-sm-3">
+            <label class="col-sm-9 nameLabel" for="secondName">Презиме</label>
+            <input class="col-sm-2 nameLabel" name ="secondName" [(ngModel)]="middleName" [ngModelOptions]="{standalone: true}" type="text" class="form-control" aria-describedby="secondname" placeholder="Бащино име">
+        </div>
+
+
+        <div class="form-group col-sm-3">
+            <label class="col-sm-9 nameLabel" for="lastName">Фамилия</label>
+            <input class="col-sm-2 nameLabel" name ="familyName" [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}" type="text" class="form-control" aria-describedby="lastName" placeholder="Фамилно име">
+        </div>
+
+        <div class="form-group col-sm-3">
+            <label class="col-sm-9 nameLabel" for="phone">Телефон</label>
+            <input class="col-sm-2 nameLabel" name ="phone" [(ngModel)]="phone" type="text" class="form-control" aria-describedby="phone" placeholder="0888342193">
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="row seats">
+            <div class="col-sm-12">
+                <div *ngFor="let seat of seatView; let i = index" class="row">
+
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button [id]="'seat' + (i*10 +1)" (click)="seatSelected($event)" [disabled]="seat[0] == 'TAKEN' || seat[0] == 'LOCKED' " 
+                            [ngClass]="{freeSeat: seat[0] == 'FREE', takenSeat: seat[0] == 'TAKEN',lockedSeat: seat[0] == 'LOCKED'}" *ngIf="seat[0]!=null" type="button" class="btn btn-secondary seatbtn">{{i*10 +
+                                    1}}</button>
+                            <button [id]="'seat' + (i*10 +2)" (click)="seatSelected($event)" [disabled]="seat[1] == 'TAKEN' || seat[1] == 'LOCKED' " 
+                            [ngClass]="{freeSeat: seat[1] == 'FREE', takenSeat: seat[1] == 'TAKEN',lockedSeat: seat[1] == 'LOCKED'}" *ngIf="seat[1]!=null" type="button" class="btn btn-secondary seatbtn">{{i*10 +
+                                    2}}</button>
+                        </div>
+
+                        <div class="btn-group mr-2" role="group" aria-label="Second group">
+                            <button [id]="'seat' + (i*10 +3)" (click)="seatSelected($event)" [disabled]="seat[2] == 'TAKEN' || seat[2] == 'LOCKED' " 
+                            [ngClass]="{freeSeat: seat[2] == 'FREE', takenSeat: seat[2] == 'TAKEN', lockedSeat: seat[2] == 'LOCKED'}" *ngIf="seat[2]!=null" type="button" class="btn btn-secondary seatbtn">{{i*10 +
+                                    3}}</button>
+                            <button [id]="'seat' + (i*10 +4)" (click)="seatSelected($event)" [disabled]="seat[3] == 'TAKEN' || seat[3] == 'LOCKED' "
+                             [ngClass]="{freeSeat: seat[3] == 'FREE', takenSeat: seat[3] == 'TAKEN', lockedSeat: seat[3] == 'LOCKED'}" *ngIf="seat[3]!=null" type="button" class="btn btn-secondary seatbtn">{{i*10+
+                                    4}}</button>
+                        </div>
+                        <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button [id]="'seat' + (i*10 +5)" (click)="seatSelected($event)" [disabled]="seat[4] == 'TAKEN' || seat[4] == 'LOCKED' " 
+                            [ngClass]="{freeSeat: seat[4] == 'FREE', takenSeat: seat[4] == 'TAKEN',lockedSeat: seat[4] == 'LOCKED'}" *ngIf="seat[4]!=null" type="button" class="btn btn-secondary seatbtn">{{i*10 +
+                                    5}}</button>
+                            <button [id]="'seat' + (i*10 +6)" (click)="seatSelected($event)" [disabled]="seat[5] == 'TAKEN' || seat[5] == 'LOCKED' " 
+                            [ngClass]="{freeSeat: seat[5] == 'FREE', takenSeat: seat[5] == 'TAKEN',lockedSeat: seat[5] == 'LOCKED'}" *ngIf="seat[5]!=null" type="button" class="btn btn-secondary seatbtn">{{i*10 +
+                                    6}}</button>
+                        </div>
+
+                        <div class="btn-group mr-2" role="group" aria-label="Second group">
+                            <button [id]="'seat' + (i*10 +7)" (click)="seatSelected($event)" [disabled]="seat[6] == 'TAKEN' || seat[6] == 'LOCKED' " 
+                            [ngClass]="{freeSeat: seat[6] == 'FREE', takenSeat: seat[6] == 'TAKEN', lockedSeat: seat[6] == 'LOCKED'}" *ngIf="seat[6]!=null" type="button" class="btn btn-secondary seatbtn">{{i*10 +
+                                    7}}</button>
+                            <button [id]="'seat' + (i*10 +8)" (click)="seatSelected($event)" [disabled]="seat[7] == 'TAKEN' || seat[7] == 'LOCKED' "
+                             [ngClass]="{freeSeat: seat[7] == 'FREE', takenSeat: seat[7] == 'TAKEN', lockedSeat: seat[7] == 'LOCKED'}" *ngIf="seat[7]!=null" type="button" class="btn btn-secondary seatbtn">{{i*10 +
+                                    8}}</button>
+                        </div>
+
+                        <div class="btn-group mr-2" role="group" aria-label="Second group">
+                            <button [id]="'seat' + (i*10 +9)" (click)="seatSelected($event)" [disabled]="seat[8] == 'TAKEN' || seat[8] == 'LOCKED' " 
+                            [ngClass]="{freeSeat: seat[8] == 'FREE', takenSeat: seat[8] == 'TAKEN', lockedSeat: seat[8] == 'LOCKED'}" *ngIf="seat[8]!=null" type="button" class="btn btn-secondary seatbtn">{{i*10 +
+                                    9}}</button>
+                            <button [id]="'seat' + (i*10 +10)" (click)="seatSelected($event)" [disabled]="seat[9] == 'TAKEN' || seat[9] == 'LOCKED' "
+                             [ngClass]="{freeSeat: seat[9] == 'FREE', takenSeat: seat[9] == 'TAKEN', lockedSeat: seat[9] == 'LOCKED'}" *ngIf="seat[9]!=null" type="button" class="btn btn-secondary seatbtn">{{i*10 +
+                                    10}}</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-12">
+        <button type="submit" class="btn btn-primary submitBtn col-12 col-sm-12"
+        [disabled]= "this.firstName ==='' || this.middleName === '' || this.lastName === ''  || !isPhoneValid() " (click)="reserveTicket()" >Напред</button>
+    </div>
+</form>

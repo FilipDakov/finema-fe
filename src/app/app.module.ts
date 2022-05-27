@@ -24,6 +24,10 @@ import { AddScreeningComponent } from './add-screening/add-screening.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { ScheduleItemComponent } from './schedule-item/schedule-item.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { ModalTicketComponent } from './modal-ticket/modal-ticket.component';
+import { ReservationService } from './service/reservationService';
+import { ModalReservationConfirmComponent } from './modal-reservation-confirm/modal-reservation-confirm.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,10 @@ import { ScheduleItemComponent } from './schedule-item/schedule-item.component';
     AddScreeningComponent,
     ComingSoonComponent,
     ScheduleComponent,
-    ScheduleItemComponent
+    ScheduleItemComponent,
+    ReservationComponent,
+    ModalTicketComponent,
+    ModalReservationConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +62,7 @@ import { ScheduleItemComponent } from './schedule-item/schedule-item.component';
     
   ],
   providers: [{ provide: 'BACKEND_URL', useValue: 'http://localhost:8080'},
-  { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
+  { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },ReservationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

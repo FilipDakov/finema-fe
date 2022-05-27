@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
+import { User } from 'src/security/user';
 
 @Component({
   selector: 'app-schedule',
@@ -9,6 +10,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 export class ScheduleComponent implements OnInit {
 
  public day: String = "";
+ private user:User = JSON.parse(localStorage.getItem('user'));
 
   constructor(private http: HttpClient,@Inject('BACKEND_URL') private backendUrl :string) { }
 

@@ -1,0 +1,67 @@
+.bg-image {
+    background-size: cover;
+    padding-bottom: 1%;     
+    margin-top: 5% !important;
+    background-image: url('/assets/img/background/test4.jpg');
+}
+
+.movies-form{
+    margin-top: 3% !important;
+    background-color: rgba(250, 244, 244, 0.8);
+    padding:3% !important;
+}
+
+.movie-select{
+    background-image:none !important ;
+ }
+
+
+ form {
+    margin-top: 6%;
+    padding-bottom: 3%;
+}
+
+.form-group {
+    padding: 0.5%;
+}
+
+.btn-group {
+    padding-bottom: 0.5%;
+    margin-left: 1%;
+}
+
+.seatbtn {
+    min-width: 50px;
+}
+
+.freeSeat {
+    background-color: #198754;
+    border-color: #2c503f;
+}
+
+.takenSeat {
+    background-color: #c13939;
+}
+
+.selectedSeat {
+    background-color: #ffc666;
+}
+.lockedSeat{
+    background-color: #6e6e6e;
+}
+
+.namesFrom {
+    margin-right: 30%;
+}
+
+.bg-image {
+    background-size: cover;
+    padding-bottom: 1%;
+    background-image: url('/assets/img/background/test4.jpg');
+    margin-top: 5% !important;
+    padding-top: 4% !important;
+}
+
+.nameLabel {
+    color: white;
+}

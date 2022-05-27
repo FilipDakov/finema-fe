@@ -12,7 +12,7 @@
                         <div *ngFor="let screening of movieScreening.screenings; let j = index"
                             class="col container container-screening">
                             <!-- <label class="col-sm-3 nameLabel" for="secondName">{{screening.imgPath}}</label> -->
-                            <button class="btn btn-outline-dark me-3 " type="button" [disabled]='false'>
+                            <button class="btn btn-outline-dark me-3 " type="button" [disabled]='false' (click)="submitBtn(movieScreening.movie,screening.startTime,screening.date,screening)">
                                 <p class="paragraph bolded">{{screening.startTime}}</p>
                                 <p class="paragraph bolded">ЗАЛА {{screening.hall}}</p>
                                 <!-- <p *ngIf='screening.premiereType != "Обикновен"' class="paragraph">{{screening.premiereType}}</p> -->

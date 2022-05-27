@@ -1,5 +1,10 @@
 a.name{
     color: rgb(201, 183, 24) !important;
+    font-size: 0.7rem;
+}
+
+.nav-link{
+    font-size: 0.75rem !important;
 }
 
 /* .navbar-brand{
