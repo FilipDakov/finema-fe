@@ -67,6 +67,12 @@ export class ReservationComponent implements OnInit {
     let phoneNumberPattern = /^[+]?(1\-|1\s|1|\d{3}\-|\d{3}\s|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/;
     return phoneNumberPattern.test(this.phone);
   }
+
+  areSeatSelected(){
+    let selectedSeats = document.getElementsByClassName("selectedSeat");
+    return selectedSeats.length>0;
+  }
+
   reserveTicket() {
     let selectedSeats = document.getElementsByClassName("selectedSeat");
     this.reservationService.setSelectedSeats([]);

@@ -38,7 +38,7 @@ export class ModalReservationConfirmComponent implements OnInit {
     const headers = { 'Content-type': 'application/json', 'Accept': 'application/json', 'charset': 'utf-8' };
     let reservation = new Reservation(this.reservationService.getScreening(), this.reservationService.getFirstName(),
       this.reservationService.getSecondName(), this.reservationService.getLastName(),
-      this.reservationService.getSelectedSeats(), this.authenticationService.currentUserValue.email);
+      this.reservationService.getSelectedSeats(), this.authenticationService.currentUserValue.email,null);
     console.log(reservation);
     let body = JSON.stringify(reservation);
     this.http.post<any>(this.backendUrl.concat("/reservation/create"), body, { 'headers': headers }).subscribe(el => {

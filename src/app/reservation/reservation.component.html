@@ -102,6 +102,6 @@
 
     <div class="col-12 col-sm-12">
         <button type="submit" class="btn btn-primary submitBtn col-12 col-sm-12"
-        [disabled]= "this.firstName ==='' || this.middleName === '' || this.lastName === ''  || !isPhoneValid() " (click)="reserveTicket()" >Напред</button>
+        [disabled]= "this.firstName ==='' || this.middleName === '' || this.lastName === ''  || !isPhoneValid()  || !areSeatSelected()" (click)="reserveTicket()" >Напред</button>
     </div>
 </form>

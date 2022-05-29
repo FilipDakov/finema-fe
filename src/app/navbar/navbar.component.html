@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark text-uppercase fixed-top navbar-collapse" id="mainNav">
-    <div class="container">
+    <div class="container mycont">
         <a class="navbar-brand" (click)="scroll($event)">
             <img src="/assets/img/finemaLogo.png" alt="" width="40" height="40" class="d-inline-block align-text-top">
             FINEMA</a>
@@ -18,7 +18,9 @@
                     Добавяне на филм</a></li>
 
                 <li *ngIf="this.authenticationService.isLogedIn() && this.authenticationService.isAdmin()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" [routerLink]="['/addScreening']">Добавяне на прожекция</a></li>
+                <li *ngIf="this.authenticationService.isLogedIn() && this.authenticationService.isAdmin()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-2 rounded" [routerLink]="['/showReservations']" >Резервации</a></li>
 
+                <li *ngIf="this.authenticationService.isLogedIn()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-2 rounded" [routerLink]="['/myReservations']" >Mоите Резервации</a></li>
                  <li *ngIf="!this.authenticationService.isLogedIn()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-2 rounded" [routerLink]="['/login']">Вход</a></li>
 
                 <li  *ngIf="!this.authenticationService.isLogedIn()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-2 rounded" [routerLink]="['/registration']">Регистрация</a></li>
@@ -28,7 +30,8 @@
                 <li *ngIf="this.authenticationService.isLogedIn()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-2 rounded name" >{{this.authenticationService.currentUserValue.email.split('@')[0]}}</a></li>
 
                 <li  *ngIf="this.authenticationService.isLogedIn() && this.authenticationService.isAdmin()" class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-1 rounded name" >ADMIN</a></li>
-
+                
+                
             </ul>
         </div>
     </div>

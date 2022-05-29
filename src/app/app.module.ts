@@ -28,6 +28,10 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { ModalTicketComponent } from './modal-ticket/modal-ticket.component';
 import { ReservationService } from './service/reservationService';
 import { ModalReservationConfirmComponent } from './modal-reservation-confirm/modal-reservation-confirm.component';
+import { ShowReservationsComponent } from './show-reservations/show-reservations.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { ShowReservationsUserComponent } from './show-reservations-user/show-reservations-user.component'
 
 @NgModule({
   declarations: [
@@ -48,7 +52,9 @@ import { ModalReservationConfirmComponent } from './modal-reservation-confirm/mo
     ScheduleItemComponent,
     ReservationComponent,
     ModalTicketComponent,
-    ModalReservationConfirmComponent
+    ModalReservationConfirmComponent,
+    ShowReservationsComponent,
+    ShowReservationsUserComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +64,9 @@ import { ModalReservationConfirmComponent } from './modal-reservation-confirm/mo
     FormsModule,
     NgbModule,
     NgSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule
     
   ],
   providers: [{ provide: 'BACKEND_URL', useValue: 'http://localhost:8080'},
