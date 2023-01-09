@@ -31,7 +31,8 @@ import { ModalReservationConfirmComponent } from './modal-reservation-confirm/mo
 import { ShowReservationsComponent } from './show-reservations/show-reservations.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { ShowReservationsUserComponent } from './show-reservations-user/show-reservations-user.component'
+import { ShowReservationsUserComponent } from './show-reservations-user/show-reservations-user.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component'
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ShowReservationsUserComponent } from './show-reservations-user/show-res
     ModalTicketComponent,
     ModalReservationConfirmComponent,
     ShowReservationsComponent,
-    ShowReservationsUserComponent
+    ShowReservationsUserComponent,
+    PasswordResetComponent
   ],
   imports: [
     BrowserModule,

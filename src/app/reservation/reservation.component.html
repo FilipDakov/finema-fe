@@ -18,8 +18,11 @@
         </div>
     </form>
 </div> -->
-
-<form class="form-group row bg-image">
+<div class="bg-image">
+<div class="container">
+    <h2 class="page-section-heading text-center text-uppercase mb-0 text">{{movieName}}</h2>
+    <h2 class="page-section-heading text-center text-uppercase mb-0 text"> {{reservationService.getScreening().startTime}} {{reservationService.getScreening().date | date:'dd/MM/yyyy'}}</h2>
+<form class="form-group row ">
     <div class="col-sm-6 formNames">
         <div class="form-group col-sm-3">
             <label class="col-sm-9 nameLabel"  for="firstName">Име</label>
@@ -100,8 +103,12 @@
         </div>
     </div>
 
-    <div class="col-12 col-sm-12">
+    <div class="col-12 col-sm-12 customBtn">
         <button type="submit" class="btn btn-primary submitBtn col-12 col-sm-12"
         [disabled]= "this.firstName ==='' || this.middleName === '' || this.lastName === ''  || !isPhoneValid()  || !areSeatSelected()" (click)="reserveTicket()" >Напред</button>
     </div>
 </form>
+
+</div>
+
+</div>

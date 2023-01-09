@@ -21,7 +21,7 @@
         <div class="form-group col-sm-6">
             <label class="col-sm-12 nameLabel" for="restriction">Възрастово ограничение</label>
             <ng-select class=" town-select  form-select form-select-md mb-1" name ="restriction" [items]="resctrictions" #box bindLabel="name"
-               appendTo="body" (change)="changeFn()" [ngModelOptions]="{standalone: true}" placeholder=""
+               appendTo="body" (change)="changeFn()" [ngModelOptions]="{standalone: true}" placeholder="Възрастово ограничение"
                [(ngModel)]="restriction"> 
             </ng-select>
           </div>
@@ -37,9 +37,9 @@
         <div class="form-group col-sm-9">
             <label class="col-sm-12 nameLabel" for="phone">Добавяне на актьори : </label>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Recipient's username"  [ngModelOptions]="{standalone: true}" [(ngModel)]="actor" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <input type="text" class="form-control" placeholder="Имена на актьор"  [ngModelOptions]="{standalone: true}" [(ngModel)]="actor" aria-label="Recipient's username" aria-describedby="button-addon2">
                 <button class="btn btn-primary customBtn" type="button" id="button-addon2"  (click)="btnClick()">Добави</button>
-                <button class="btn btn-primary customBtn" type="button" id="button-addon2"  (click)="removeClick()">Премахни последен</button>
+                <button class="btn btn-danger customBtn" type="button" id="button-addon2"  (click)="removeClick()">Премахни последен</button>
             </div>
         </div>
 
@@ -47,11 +47,11 @@
             <label class="col-sm-12 nameLabel" for="genres">Добавяне на жанр</label>
             <div class="input-group mb-3">
             <ng-select class=" town-select  form-select form-select-md mb-6" name ="genres" [items]="genres" #box bindLabel="name"
-               appendTo="body" (change)="changeFn()" [ngModelOptions]="{standalone: true}" placeholder=""
+               appendTo="body" (change)="changeFn()" [ngModelOptions]="{standalone: true}" placeholder="Избиране на жанр"
                [(ngModel)]="genre"> 
             </ng-select>
             <button class="btn btn-primary customBtn mb-6" type="button" id="button-addon2"  (click)="addGenreClick()">Добави</button>
-            <button class="btn btn-primary customBtn mb-6" type="button" id="button-addon2"  (click)="removeGenreClick()">Премахни последен</button>
+            <button class="btn btn-danger customBtn mb-6" type="button" id="button-addon2"  (click)="removeGenreClick()">Премахни последен</button>
         </div>
         </div>
 

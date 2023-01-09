@@ -45,7 +45,7 @@ export class ModalReservationConfirmComponent implements OnInit {
       console.log(el);
       if (el.errorCode == 200) {
         const modalRef = this.modalService.open(ModalElementComponent)
-        modalRef.componentInstance.name = el.message;
+        modalRef.componentInstance.name = "Успешно направена резервация";
         this.router.navigate(['/schedule']);
         this.activeModal.close();
       }else {

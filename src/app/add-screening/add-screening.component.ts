@@ -78,9 +78,10 @@ export class AddScreeningComponent implements OnInit {
   }
 
   disableButton() {
-    if (this.movieName != '' && this.hall != null && this.premiereType != null && this.screeningType != null && this.model != null) {
+    if (this.movieName != '' && this.hall != null && this.premiereType != null && this.screeningType != null && this.model != null && (this.time.hour < 23 && this.time.hour >= 10)) {
       return false;
     }
+    
     return true;
   }
 

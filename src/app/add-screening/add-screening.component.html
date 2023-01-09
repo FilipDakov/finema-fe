@@ -11,15 +11,16 @@
     </div>
 
     <div class="col-sm-6 formNames">
-        <div class="form-group col-sm-6">
+        <!-- <div class="form-group col-sm-6">
             <label class="col-sm-6 nameLabel" for="movieName">Име на филм :</label>
             <input class="col-sm-2 nameLabel" name="movieName" [(ngModel)]="movieName"
                 [ngModelOptions]="{standalone: true}" type="text" class="form-control" aria-describedby="movieName"
                 placeholder="Име на филм">
-        </div>
+        </div> -->
 
         <div class="form-group col-sm-6">
             <!-- <label class="col-sm-12 nameLabel" for="movieName">Възрастово ограничение</label> -->
+            <label class="col-sm-6 nameLabel" for="movieName">Име на филм :</label>
             <ng-select class=" town-select  form-select form-select-md mb-1" name ="movies" [items]="movies" #box bindLabel="movieName"
                appendTo="body" (change)="changeFn()" [ngModelOptions]="{standalone: true}" placeholder=""
                [(ngModel)]="movieName"> 

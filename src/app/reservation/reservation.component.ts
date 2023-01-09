@@ -14,9 +14,8 @@ import { ReservationService } from '../service/reservationService';
 })
 export class ReservationComponent implements OnInit {
 
-  public items: Array<any> = ["edno", "dve", "tri"];
   public movieName: string = "";
-
+  
 
   public seatView: Seat[][];
   public firstName: string = '';
@@ -40,6 +39,7 @@ export class ReservationComponent implements OnInit {
     const headers = { 'content-type': 'application/json' }
     const body = JSON.stringify(this.reservationService.getScreening());
     let seat: Seat[] = Array();
+    this.movieName = this.reservationService.getScreening().movie;
 
     this.http.post(this.backendUrl.concat("/reservation/freeSeats"), body, { 'headers': headers })
       .subscribe(x => {

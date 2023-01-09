@@ -1,8 +1,8 @@
 .bg-image {
     background-size: cover;
     padding-bottom: 1%;     
-    margin-top: 5% !important;
-    background-image: url('/assets/img/background/test4.jpg');
+    margin-top: 1% !important;
+    background-image: url('/assets/img/background/background.jpg');
 }
 
 .movies-form{
@@ -17,7 +17,7 @@
 
 
  form {
-    margin-top: 6%;
+    margin-top: 3%;
     padding-bottom: 3%;
 }
 
@@ -57,11 +57,23 @@
 .bg-image {
     background-size: cover;
     padding-bottom: 1%;
-    background-image: url('/assets/img/background/test4.jpg');
-    margin-top: 5% !important;
+    background-image: url('/assets/img/background/background.jpg');
+    margin-top: 1% !important;
     padding-top: 4% !important;
 }
 
 .nameLabel {
     color: white;
+}
+
+.customBtn{
+    margin-top: 1.5%;
+}
+
+.container{
+    margin-top: 2%;
+}
+
+.text{
+    color: aliceblue !important;
 }

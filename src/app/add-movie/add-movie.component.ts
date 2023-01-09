@@ -89,7 +89,6 @@ export class AddMovieComponent implements OnInit {
               console.log(newMovie);
               const headers = { 'content-type': 'application/json', 'Accept': 'application/json', 'charset': 'utf-8' };
               const body = JSON.stringify(newMovie);
-              let finish = false;
               //  const modalRef = this.modalService.open(ModalElementComponent);
               this.http.post<any>(this.backendUrl.concat("/movies/addMovie"), body, { 'headers': headers }).subscribe(el => {
                 console.log(el);
@@ -100,29 +99,12 @@ export class AddMovieComponent implements OnInit {
             }else{
               const modalRef = this.modalService.open(ModalElementComponent);
               // console.log(el.message);
-              modalRef.componentInstance.name = event.body.message;
+              modalRef.componentInstance.name = "Проблем със записването на файла. Опитайте отново.";
             }
           }
         });
       }
     }
-
-
-    // let genresEnum = [];
-    // this.selectedGenres.forEach(x =>
-    //   genresEnum.push(this.mapGenres.get(x)));
-    // let newMovie = new Movie(this.actors, this.mapRestrictions.get(this.restriction), this.description, genresEnum, "assets/img/finemaLogo.png", this.movieName, date, this.timespan);
-    // console.log(newMovie);
-    // const headers = { 'content-type': 'application/json', 'Accept': 'application/json', 'charset': 'utf-8' };
-    // const body = JSON.stringify(newMovie);
-    // let finish = false;
-    // //  const modalRef = this.modalService.open(ModalElementComponent);
-    // this.http.post<any>(this.backendUrl.concat("/movies/addMovie"), body, { 'headers': headers }).subscribe(el => {
-    //   console.log(el);
-    //   const modalRef = this.modalService.open(ModalElementComponent);
-    //   // console.log(el.message);
-    //   modalRef.componentInstance.name = el.message;
-    // });
 
   }
 
@@ -150,8 +132,8 @@ export class AddMovieComponent implements OnInit {
       //   alert("Въведете две имена на актьора");
     } else {
       let names = this.actor.split(' ');
-      if (names.length > 2) {
-        modalRef.componentInstance.name = "Въведете само две имена на актьора";
+      if (names.length != 2) {
+        modalRef.componentInstance.name = "Въведете две имена на актьора";
         //       alert("Въведете само две имена на актьора");
       } else {
         this.actors.push(new Actor(names[0], names[1]));
